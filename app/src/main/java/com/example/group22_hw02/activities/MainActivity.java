@@ -5,12 +5,17 @@
  */
 package com.example.group22_hw02.activities;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,20 +37,70 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
     Profile profile;
 
+    static public String DRINK_KEY = "Drink";
+    static public String WEIGHT_KEY = "Weight";
+
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
 
-    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
-        if (result != null && result.getResultCode() == RESULT_OK) {
-            if (result.getData() != null) {
-                Intent intent = result.getData();
+    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+        @Override
+        public void onActivityResult(ActivityResult result) {
+            if (result != null && result.getResultCode() == RESULT_OK) {
+                if (result.getData() != null) {
+                    Intent intent = result.getData();
 
-                profile = (Profile) intent.getSerializableExtra(getString(R.string.intent_profile));
-                if (profile.weight > 0) {
-                    weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
+                    profile = (Profile) intent.getSerializableExtra(getString(R.string.intent_profile));
+                    if (profile.weight > 0) {
+                        weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
+                    }
+
+                    // takes entered drink and adds it to the ArrayList
+                    Drink drink = (Drink) result.getData().getSerializableExtra(DRINK_KEY);
+                    drinkArrayList.add(drink);
+
+                    bacLevelView.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            if (charSequence.length() > 0) {
+                                double bac = Double.parseDouble(charSequence.toString());
+
+                                GradientDrawable viewBackground = (GradientDrawable) statusView.getBackground();
+
+                                if (0 <= bac && bac <= 0.08) {
+                                    // You're Safe.
+                                    statusView.setText(R.string.status_view_safe);
+                                    viewBackground.setColor(getResources().getColor(R.color.success));
+                                } else if (0.08 < bac && bac <= 0.2) {
+                                    // Be Careful.
+                                    statusView.setText(R.string.status_view_careful);
+                                    viewBackground.setColor(getResources().getColor(R.color.warning));
+                                } else if (0.2 < bac) {
+                                    // Over the limit!
+                                    statusView.setText(R.string.status_view_danger);
+                                    viewBackground.setColor(getResources().getColor(R.color.danger));
+
+                                    if (0.25 <= bac) {
+                                        Toast.makeText(getParent(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
+                                        buttonDrinkAdd.setEnabled(false);
+                                    }
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+                        }
+                    });
                 }
             }
         }
     });
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,11 +151,22 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             Intent intent = new Intent(getApplicationContext(), AddDrinkActivity.class);
             startForResult.launch(intent);
         });
+
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        // if a profile was entered, enable the Add Drink button
+        if (profile != null) {
+            buttonDrinkAdd.setEnabled(true);
+        }
+
+        // if there are drinks in the ArrayList, enable the View Drinks button
+        buttonDrinkView.setEnabled(!drinkArrayList.isEmpty());
+
     }
 
     @Override

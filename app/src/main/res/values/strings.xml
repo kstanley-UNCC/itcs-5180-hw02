@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">BAC Calculator</string>
-    <string name="app_activity_set_weight_gender_name">"Set Weight &amp; Gender"</string>
+    <string name="app_activity_set_weight_gender_name">Set Weight &amp; Gender</string>
+    <string name="app_activity_add_drink">Add Drink</string>
 
     <string name="weight_label">Weight:</string>
     <string name="weight_widget_hint">Enter Weight</string>
@@ -46,6 +47,7 @@
     <string name="exception_illegal_state_gender">Invalid gender selection.</string>
 
     <string name="validation_drink_size">Please pick a drink size!</string>
+    <string name="validation_alcohol_percent">Please pick an alcohol percent!</string>
     <string name="validation_gender">Please pick a gender!</string>
     <string name="validation_weight">Please enter your weight!</string>
     <string name="validation_weight_gender">Please set your weight and gender!</string>

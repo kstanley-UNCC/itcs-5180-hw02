@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.group22_hw02.Profile;
 import com.example.group22_hw02.R;
-import com.example.group22_hw02.activities.MainActivity;
 
 public class SetActivity extends AppCompatActivity {
     EditText weightWidget;
@@ -42,7 +41,7 @@ public class SetActivity extends AppCompatActivity {
         findViewById(R.id.buttonCancel).setOnClickListener(v -> finish());
 
         // set weight button
-        findViewById(R.id.buttonWeightSet).setOnClickListener(v -> {
+        findViewById(R.id.buttonDrinkAdd).setOnClickListener(v -> {
             if (!validateWeight()) {
                 Toast.makeText(getApplicationContext(), getString(R.string.validation_weight), Toast.LENGTH_SHORT).show();
                 return;
