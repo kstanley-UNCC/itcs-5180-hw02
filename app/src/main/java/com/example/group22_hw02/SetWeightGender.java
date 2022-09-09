@@ -51,7 +51,7 @@ public class SetWeightGender extends AppCompatActivity {
 
             setWeight();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra("profile", new Profile(userWeight, gender, genderConstant));
+            intent.putExtra(getString(R.string.intent_profile), new Profile(userWeight, gender, genderConstant));
 
             setResult(RESULT_OK, intent);
 

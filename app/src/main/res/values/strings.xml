@@ -47,4 +47,6 @@
     <string name="validation_gender">Please pick a gender!</string>
     <string name="validation_weight">Please enter your weight!</string>
     <string name="validation_weight_gender">Please set your weight and gender!</string>
+
+    <string name="intent_profile">profile</string>
 </resources>
