@@ -41,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         setTitle(R.string.app_name);
 
