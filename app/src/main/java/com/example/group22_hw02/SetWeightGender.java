@@ -51,9 +51,10 @@ public class SetWeightGender extends AppCompatActivity {
             }
 
             setWeight();
-            Intent submitIntent = new Intent(getApplicationContext(), MainActivity.class);
-            submitIntent.putExtra(gender, genderConstant);
-            setResult(RESULT_OK, submitIntent);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
+            setResult(RESULT_OK, intent);
+
             finish();
         });
     }
