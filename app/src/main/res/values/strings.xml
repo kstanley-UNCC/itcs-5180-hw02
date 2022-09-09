@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">BAC Calculator</string>
+
+    <string name="weight_label">Weight (lbs):</string>
+    <string name="weight_widget_hint">Enter Weight</string>
+    <string name="set_weight_button_label">Set</string>
+    <string name="weight_view_label">Weight:</string>
+    <string name="weight_view_view">%.0f lbs (%s)</string>
+    <string name="cancel_button_label">Cancel</string>
+    <string name="gender_group_label">Gender:</string>
+    <string name="gender_group_female">Female</string>
+    <string name="gender_group_male">Male</string>
+    <string name="close_button_label">Close</string>
+
+    <string name="drink_size_group_label">Drink Size:</string>
+    <string name="drink_size_option1_label">1 oz</string>
+    <string name="drink_size_option2_label">5 oz</string>
+    <string name="drink_size_option3_label">12 oz</string>
+
+    <string name="previous_button_description">Previous Button</string>
+    <string name="next_button_description">Next Button</string>
+    <string name="trash_button_description">Trash Button</string>
+
+    <string name="alcohol_percent_label">Alcohol %:</string>
+    <string name="alcohol_percent_view">%1$d%%</string>
+
+    <string name="reset_button_label">Reset</string>
+    <string name="view_drink_button_label">View Drinks</string>
+    <string name="add_drink_button_label">Add Drink</string>
+
+    <string name="num_drinks_label"># Drinks:</string>
+    <string name="num_drinks_view">%d</string>
+    <string name="bac_level_label">BAC Level:</string>
+    <string name="bac_level_view">%.3f</string>
+
+    <string name="status_view_label">Your Status:</string>
+    <string name="status_view_safe">You\'re Safe.</string>
+    <string name="status_view_careful">Be Careful.</string>
+    <string name="status_view_danger">Over the Limit!</string>
+    <string name="status_view_over">No more drinks for you.</string>
+
+    <string name="exception_illegal_state_drink_size">Invalid drink size selection.</string>
+    <string name="exception_illegal_state_gender">Invalid gender selection.</string>
+
+    <string name="validation_drink_size">Please pick a drink size!</string>
+    <string name="validation_gender">Please pick a gender!</string>
+    <string name="validation_weight">Please enter your weight!</string>
+    <string name="validation_weight_gender">Please set your weight and gender!</string>
+</resources>

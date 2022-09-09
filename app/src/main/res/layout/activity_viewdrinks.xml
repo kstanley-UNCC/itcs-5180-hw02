@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/buttonTrash"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:contentDescription="@string/trash_button_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDateAdded"
+        app:layout_constraintVertical_bias="0.166"
+        app:srcCompat="@mipmap/ic_trash_foreground" />
+
+    <Button
+        android:id="@+id/buttonClose"
+        android:layout_width="153dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/close_button_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonTrash" />
+
+    <ImageButton
+        android:id="@+id/buttonPrevious"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginStart="16dp"
+        android:contentDescription="@string/previous_button_description"
+        app:layout_constraintEnd_toStartOf="@+id/buttonTrash"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonTrash"
+        app:srcCompat="@mipmap/ic_previous_foreground" />
+
+    <ImageButton
+        android:id="@+id/buttonNext"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/next_button_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/buttonTrash"
+        app:layout_constraintTop_toTopOf="@+id/buttonTrash"
+        app:srcCompat="@mipmap/ic_next_foreground" />
+
+    <TextView
+        android:id="@+id/viewDrinkSize"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="DRINK SIZE"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewTotalDrinkNumber" />
+
+    <TextView
+        android:id="@+id/viewAlcoholPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="#% Alcohol"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewDrinkSize" />
+
+    <TextView
+        android:id="@+id/viewCurrentDrinkNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="20dp"
+        android:text="Drink #"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/viewTotalDrinkNumber"
+        android:layout_width="177dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="12dp"
+        android:text="out of #"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/viewCurrentDrinkNumber"
+        app:layout_constraintTop_toTopOf="@+id/viewCurrentDrinkNumber" />
+
+    <TextView
+        android:id="@+id/viewDateAdded"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Added date time"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewAlcoholPercent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
