@@ -23,7 +23,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SetWeightGender"
+            android:name=".SetActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="com.example.group22_hw02.SetWeightGender" />

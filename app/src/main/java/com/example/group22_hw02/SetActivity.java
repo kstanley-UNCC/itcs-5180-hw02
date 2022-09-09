@@ -1,6 +1,6 @@
 /*
  * Group 22 Homework 02
- * SetWeightGender.java
+ * SetActivity.java
  * Ken Stanley & Stephanie Karp
  */
 package com.example.group22_hw02;
@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class SetWeightGender extends AppCompatActivity {
+public class SetActivity extends AppCompatActivity {
     EditText weightWidget;
     RadioGroup genderGroup;
 
@@ -27,7 +27,7 @@ public class SetWeightGender extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setweightgender);
+        setContentView(R.layout.activity_set);
 
         setTitle(R.string.app_activity_set_weight_gender_name);
 

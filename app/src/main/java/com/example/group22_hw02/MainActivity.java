@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
         // button to set weight and gender
         findViewById(R.id.buttonSetWeight).setOnClickListener(v -> {
-            Intent intent = new Intent("com.example.group22_hw02.SetWeightGender");
+            Intent intent = new Intent("com.example.group22_hw02.SetActivity");
             startForResult.launch(intent);
         });
 
@@ -81,14 +81,15 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
         findViewById(R.id.buttonDrinkView).setOnClickListener(v -> {
             if (drinkArrayList.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "There are no drinks to view", Toast.LENGTH_SHORT).show();
-            } else {                Intent viewIntent = new Intent(getApplicationContext(), ViewDrinks.class);
+            } else {
+                Intent viewIntent = new Intent(getApplicationContext(), ViewDrinksActivity.class);
                 startForResult.launch(viewIntent);
             }
         });
 
         // button to add drinks
         findViewById(R.id.buttonDrinkAdd).setOnClickListener(v -> {
-            Intent addIntent = new Intent(getApplicationContext(), AddDrink.class);
+            Intent addIntent = new Intent(getApplicationContext(), AddDrinkActivity.class);
             startForResult.launch(addIntent);
         });
     }
