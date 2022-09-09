@@ -18,7 +18,8 @@ import androidx.appcompat.app.AppCompatActivity;
 public class SetWeightGender extends AppCompatActivity {
     EditText weightWidget;
     RadioGroup genderGroup;
-    double userWeight;
+
+    int userWeight;
     double genderConstant;
     String gender;
 
