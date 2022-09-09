@@ -1,3 +1,8 @@
+/*
+ * Group 22 Homework 02
+ * Drink.java
+ * Ken Stanley & Stephanie Karp
+ */
 package com.example.group22_hw02;
 
 import java.io.Serializable;

@@ -1,3 +1,8 @@
+/*
+ * Group 22 Homework 02
+ * MainActivity.java
+ * Ken Stanley & Stephanie Karp
+ */
 package com.example.group22_hw02;
 
 import androidx.activity.result.ActivityResult;
