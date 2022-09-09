@@ -66,8 +66,8 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
         // button to set weight and gender
         findViewById(R.id.buttonSetWeight).setOnClickListener(v -> {
-            Intent setIntent = new Intent(MainActivity.this, SetWeightGender.class);
-            startForResult.launch(setIntent);
+            Intent intent = new Intent("com.example.group22_hw02.SetWeightGender");
+            startForResult.launch(intent);
         });
 
         // button to view drinks
