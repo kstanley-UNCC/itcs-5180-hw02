@@ -28,7 +28,7 @@ public class SetWeightGender extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_setweightgender);
 
         setTitle("Set Weight & Gender");
 
