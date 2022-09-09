@@ -32,13 +32,10 @@ public class MainActivity extends AppCompatActivity implements Comparable{
 
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
 
-    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-        @Override
-        public void onActivityResult(ActivityResult result) {
-            if (result != null && result.getResultCode() == RESULT_OK) {
-                if (result.getData() != null) {
+    ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        if (result != null && result.getResultCode() == RESULT_OK) {
+            if (result.getData() != null) {
 
-                }
             }
         }
     });
@@ -59,47 +56,35 @@ public class MainActivity extends AppCompatActivity implements Comparable{
         weightView = findViewById(R.id.weightView);
 
         // reset button resets calculator to original state
-        findViewById(R.id.buttonReset).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                weightView.setText("N/A");
-                numDrinksView.setText(getString(R.string.num_drinks_view, 0));
-                bacLevelView.setText(getString(R.string.bac_level_view, 0.0));
-                drinkArrayList.clear();
-                buttonDrinkAdd.setEnabled(false);
-                buttonDrinkView.setEnabled(false);
-            }
+        findViewById(R.id.buttonReset).setOnClickListener(v -> {
+            weightView.setText("N/A");
+            numDrinksView.setText(getString(R.string.num_drinks_view, 0));
+            bacLevelView.setText(getString(R.string.bac_level_view, 0.0));
+            drinkArrayList.clear();
+            buttonDrinkAdd.setEnabled(false);
+            buttonDrinkView.setEnabled(false);
         });
 
         // button to set weight and gender
-        findViewById(R.id.buttonSetWeight).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent setIntent = new Intent(MainActivity.this, SetWeightGender.class);
-                startForResult.launch(setIntent);
-            }
+        findViewById(R.id.buttonSetWeight).setOnClickListener(v -> {
+            Intent setIntent = new Intent(MainActivity.this, SetWeightGender.class);
+            startForResult.launch(setIntent);
         });
 
         // button to view drinks
-        findViewById(R.id.buttonDrinkView).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (drinkArrayList.isEmpty()) {
-                    Toast.makeText(MainActivity.this, "There are no drinks to view", Toast.LENGTH_SHORT).show();
-                } else {
-                    Intent viewIntent = new Intent(MainActivity.this, ViewDrinks.class);
-                    startForResult.launch(viewIntent);
-                }
+        findViewById(R.id.buttonDrinkView).setOnClickListener(v -> {
+            if (drinkArrayList.isEmpty()) {
+                Toast.makeText(MainActivity.this, "There are no drinks to view", Toast.LENGTH_SHORT).show();
+            } else {
+                Intent viewIntent = new Intent(MainActivity.this, ViewDrinks.class);
+                startForResult.launch(viewIntent);
             }
         });
 
         // button to add drinks
-        findViewById(R.id.buttonDrinkAdd).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent addIntent = new Intent(MainActivity.this, AddDrink.class);
-                startForResult.launch(addIntent);
-            }
+        findViewById(R.id.buttonDrinkAdd).setOnClickListener(v -> {
+            Intent addIntent = new Intent(getApplicationContext(), AddDrink.class);
+            startForResult.launch(addIntent);
         });
     }
 

@@ -36,33 +36,25 @@ public class SetWeightGender extends AppCompatActivity {
         weightWidget = findViewById(R.id.weightWidget);
 
         // Cancel button returns to MainActivity
-        findViewById(R.id.buttonCancel).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        findViewById(R.id.buttonCancel).setOnClickListener(v -> finish());
 
         // set weight button
-        findViewById(R.id.buttonSetWeight).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!validateWeight()) {
-                    Toast.makeText(SetWeightGender.this, getString(R.string.validation_weight), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                if (!validateGender()) {
-                    Toast.makeText(SetWeightGender.this, getString(R.string.validation_gender), Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-                setWeight();
-                Intent submitIntent = new Intent(SetWeightGender.this, MainActivity.class);
-                submitIntent.putExtra(gender, genderConstant);
-                setResult(RESULT_OK, submitIntent);
-                finish();
+        findViewById(R.id.buttonWeightSet).setOnClickListener(v -> {
+            if (!validateWeight()) {
+                Toast.makeText(SetWeightGender.this, getString(R.string.validation_weight), Toast.LENGTH_SHORT).show();
+                return;
             }
+
+            if (!validateGender()) {
+                Toast.makeText(SetWeightGender.this, getString(R.string.validation_gender), Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            setWeight();
+            Intent submitIntent = new Intent(SetWeightGender.this, MainActivity.class);
+            submitIntent.putExtra(gender, genderConstant);
+            setResult(RESULT_OK, submitIntent);
+            finish();
         });
     }
 
