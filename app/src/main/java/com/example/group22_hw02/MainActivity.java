@@ -20,8 +20,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity implements Comparable{
-
+public class MainActivity extends AppCompatActivity implements Comparable<MainActivity> {
     TextView bacLevelView;
     TextView numDrinksView;
     TextView statusView;
@@ -42,8 +41,7 @@ public class MainActivity extends AppCompatActivity implements Comparable{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        super.onCreate(savedInstanceState);        setContentView(R.layout.activity_main);
 
         setTitle(R.string.app_name);
 
@@ -95,7 +93,7 @@ public class MainActivity extends AppCompatActivity implements Comparable{
     }
 
     @Override
-    public int compareTo(Object o) {
+    public int compareTo(MainActivity o) {
         return 0;
     }
 }
