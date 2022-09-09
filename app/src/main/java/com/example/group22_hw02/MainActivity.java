@@ -26,12 +26,19 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
     Button buttonDrinkView;
     Button buttonSetWeight;
 
+    Profile profile;
+
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
 
     ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
         if (result != null && result.getResultCode() == RESULT_OK) {
             if (result.getData() != null) {
+                Intent intent = result.getData();
 
+                profile = (Profile) intent.getSerializableExtra(getString(R.string.intent_profile));
+                if (profile.weight > 0) {
+                    weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
+                }
             }
         }
     });
