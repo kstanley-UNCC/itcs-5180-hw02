@@ -41,17 +41,17 @@ public class SetWeightGender extends AppCompatActivity {
         // set weight button
         findViewById(R.id.buttonWeightSet).setOnClickListener(v -> {
             if (!validateWeight()) {
-                Toast.makeText(SetWeightGender.this, getString(R.string.validation_weight), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.validation_weight), Toast.LENGTH_SHORT).show();
                 return;
             }
 
             if (!validateGender()) {
-                Toast.makeText(SetWeightGender.this, getString(R.string.validation_gender), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.validation_gender), Toast.LENGTH_SHORT).show();
                 return;
             }
 
             setWeight();
-            Intent submitIntent = new Intent(SetWeightGender.this, MainActivity.class);
+            Intent submitIntent = new Intent(getApplicationContext(), MainActivity.class);
             submitIntent.putExtra(gender, genderConstant);
             setResult(RESULT_OK, submitIntent);
             finish();
