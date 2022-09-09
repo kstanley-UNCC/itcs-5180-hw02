@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements Comparable{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("BAC Calculator");
+        setTitle(R.string.app_name);
 
         bacLevelView = findViewById(R.id.bacLevelView);
         numDrinksView = findViewById(R.id.numDrinksView);
@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements Comparable{
 
         // reset button resets calculator to original state
         findViewById(R.id.buttonReset).setOnClickListener(v -> {
-            weightView.setText("N/A");
+            weightView.setText(R.string.weight_view_label_reset);
             numDrinksView.setText(getString(R.string.num_drinks_view, 0));
             bacLevelView.setText(getString(R.string.bac_level_view, 0.0));
             drinkArrayList.clear();

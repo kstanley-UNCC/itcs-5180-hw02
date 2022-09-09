@@ -1,10 +1,12 @@
 <resources>
     <string name="app_name">BAC Calculator</string>
+    <string name="app_activity_set_weight_gender_name">"Set Weight &amp; Gender"</string>
 
     <string name="weight_label">Weight (lbs):</string>
     <string name="weight_widget_hint">Enter Weight</string>
     <string name="set_weight_button_label">Set</string>
     <string name="weight_view_label">Weight:</string>
+    <string name="weight_view_label_reset">N/A</string>
     <string name="weight_view_view">%.0f lbs (%s)</string>
     <string name="cancel_button_label">Cancel</string>
     <string name="gender_group_label">Gender:</string>
