@@ -3,7 +3,7 @@
  * SetActivity.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw02;
+package com.example.group22_hw02.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,6 +13,10 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.group22_hw02.Profile;
+import com.example.group22_hw02.R;
+import com.example.group22_hw02.activities.MainActivity;
 
 public class SetActivity extends AppCompatActivity {
     EditText weightWidget;

@@ -3,7 +3,7 @@
  * MainActivity.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw02;
+package com.example.group22_hw02.activities;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -14,6 +14,10 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.group22_hw02.Drink;
+import com.example.group22_hw02.Profile;
+import com.example.group22_hw02.R;
 
 import java.util.ArrayList;
 
@@ -73,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
         // button to set weight and gender
         findViewById(R.id.buttonSetWeight).setOnClickListener(v -> {
-            Intent intent = new Intent("com.example.group22_hw02.SetActivity");
+            Intent intent = new Intent("com.example.group22_hw02.activities.SetActivity");
             startForResult.launch(intent);
         });
 

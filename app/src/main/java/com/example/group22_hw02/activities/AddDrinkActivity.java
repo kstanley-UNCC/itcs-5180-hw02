@@ -3,7 +3,7 @@
  * AddDrinkActivity.java
  * Ken Stanley & Stephanie Karp
  */
-package com.example.group22_hw02;
+package com.example.group22_hw02.activities;
 
 public class AddDrinkActivity {
 
