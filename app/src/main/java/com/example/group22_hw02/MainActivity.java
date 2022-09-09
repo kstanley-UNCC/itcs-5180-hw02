@@ -56,10 +56,13 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             weightView.setText(R.string.weight_view_label_reset);
             numDrinksView.setText(getString(R.string.num_drinks_view, 0));
             bacLevelView.setText(getString(R.string.bac_level_view, 0.0));
+
             drinkArrayList.clear();
+
             buttonDrinkAdd.setEnabled(false);
             buttonDrinkView.setEnabled(false);
         });
+        findViewById(R.id.buttonReset).performClick();
 
         // button to set weight and gender
         findViewById(R.id.buttonSetWeight).setOnClickListener(v -> {
@@ -71,8 +74,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
         findViewById(R.id.buttonDrinkView).setOnClickListener(v -> {
             if (drinkArrayList.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "There are no drinks to view", Toast.LENGTH_SHORT).show();
-            } else {
-                Intent viewIntent = new Intent(getApplicationContext(), ViewDrinks.class);
+            } else {                Intent viewIntent = new Intent(getApplicationContext(), ViewDrinks.class);
                 startForResult.launch(viewIntent);
             }
         });
