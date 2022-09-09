@@ -2,7 +2,7 @@
     <string name="app_name">BAC Calculator</string>
     <string name="app_activity_set_weight_gender_name">"Set Weight &amp; Gender"</string>
 
-    <string name="weight_label">Weight (lbs):</string>
+    <string name="weight_label">Weight:</string>
     <string name="weight_widget_hint">Enter Weight</string>
     <string name="set_weight_button_label">Set</string>
     <string name="weight_view_label">Weight:</string>
@@ -13,7 +13,6 @@
     <string name="gender_group_female">Female</string>
     <string name="gender_group_male">Male</string>
     <string name="close_button_label">Close</string>
-
     <string name="drink_size_group_label">Drink Size:</string>
     <string name="drink_size_option1_label">1 oz</string>
     <string name="drink_size_option2_label">5 oz</string>
