@@ -82,15 +82,15 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             if (drinkArrayList.isEmpty()) {
                 Toast.makeText(getApplicationContext(), "There are no drinks to view", Toast.LENGTH_SHORT).show();
             } else {
-                Intent viewIntent = new Intent(getApplicationContext(), ViewDrinksActivity.class);
-                startForResult.launch(viewIntent);
+                Intent intent = new Intent(getApplicationContext(), ViewDrinksActivity.class);
+                startForResult.launch(intent);
             }
         });
 
         // button to add drinks
         findViewById(R.id.buttonDrinkAdd).setOnClickListener(v -> {
-            Intent addIntent = new Intent(getApplicationContext(), AddDrinkActivity.class);
-            startForResult.launch(addIntent);
+            Intent intent = new Intent(getApplicationContext(), AddDrinkActivity.class);
+            startForResult.launch(intent);
         });
     }
 
