@@ -3,9 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="app/src/main/res/layout/activity_adddrink.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_adddrink.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.4036458333333333" />
-        <entry key="app/src/main/res/layout/activity_set.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_set.xml" value="0.375" />
         <entry key="app/src/main/res/layout/activity_setweightgender.xml" value="0.375" />
       </map>
     </option>
