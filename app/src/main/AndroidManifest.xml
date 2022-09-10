@@ -38,6 +38,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".activities.ViewDrinksActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.group22_hw02.activities.ViewDrinksActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

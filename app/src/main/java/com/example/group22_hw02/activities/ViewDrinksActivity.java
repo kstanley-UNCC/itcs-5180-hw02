@@ -5,6 +5,8 @@
  */
 package com.example.group22_hw02.activities;
 
-public class ViewDrinksActivity {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ViewDrinksActivity extends AppCompatActivity {
 
 }
