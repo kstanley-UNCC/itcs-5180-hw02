@@ -52,10 +52,13 @@ public class AddDrinkActivity extends AppCompatActivity {
             switch (drinkSizeGroup.getCheckedRadioButtonId()) {
                 case R.id.drinkSizeOption1:
                     drinkOunces = DRINK_SMALL;
+                    break;
                 case R.id.drinkSizeOption2:
                     drinkOunces = DRINK_MEDIUM;
+                    break;
                 case R.id.drinkSizeOption3:
                     drinkOunces = DRINK_LARGE;
+                    break;
             }
         });
 
