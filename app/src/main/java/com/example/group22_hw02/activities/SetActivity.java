@@ -22,11 +22,7 @@ public class SetActivity extends AppCompatActivity {
     RadioGroup genderGroup;
 
     int userWeight;
-    double genderConstant;
     String gender;
-
-    protected final double BAC_GENDER_FEMALE = 0.66;
-    protected final double BAC_GENDER_MALE = 0.73;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +50,7 @@ public class SetActivity extends AppCompatActivity {
 
             setWeight();
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            intent.putExtra(getString(R.string.intent_profile), new Profile(userWeight, gender, genderConstant));
+            intent.putExtra(getString(R.string.intent_profile), new Profile(userWeight, gender));
 
             setResult(MainActivity.ACTIVITY_SET, intent);
 
@@ -71,10 +67,8 @@ public class SetActivity extends AppCompatActivity {
         // select gender
         if (genderChoice == R.id.genderFemale) {
             gender = getString(R.string.gender_group_female);
-            genderConstant = BAC_GENDER_FEMALE;
         } else if (genderChoice == R.id.genderMale) {
             gender = getString(R.string.gender_group_male);
-            genderConstant = BAC_GENDER_MALE;
         } else {
             throw new IllegalStateException(getString(R.string.exception_illegal_state_gender));
         }
