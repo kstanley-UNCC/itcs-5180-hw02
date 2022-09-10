@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                         Drink drink = (Drink) result.getData().getSerializableExtra(getString(R.string.intent_drink));
                         drinkArrayList.add(drink);
 
+                        numDrinksView.setText(getString(R.string.num_drinks_view, drinkArrayList.size()));
+                        bacLevelView.setText(getString(R.string.bac_level_view, calculateBac()));
                         break;
                     default:
                         throw new IllegalArgumentException(getString(R.string.exception_illegal_argument_unknown_result_code, result.getResultCode()));
