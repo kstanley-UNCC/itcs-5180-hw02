@@ -181,4 +181,19 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
     public int compareTo(MainActivity o) {
         return 0;
     }
+
+    /**
+     * Helper to calculate the Blood Alcohol Content for the subject.
+     *
+     * @return double
+     */
+    private double calculateBac() {
+        double totalLiquidOz = 0.0;
+
+        for (Drink drink : drinkArrayList) {
+            totalLiquidOz += drink.getLiquidOunces();
+        }
+
+        return (totalLiquidOz * 5.14) / (profile.weight * profile.getGenderConstant(this));
+    }
 }
