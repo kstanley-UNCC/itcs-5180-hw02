@@ -62,43 +62,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                         Drink drink = (Drink) result.getData().getSerializableExtra(getString(R.string.intent_drink));
                         drinkArrayList.add(drink);
 
-                        bacLevelView.addTextChangedListener(new TextWatcher() {
-                            @Override
-                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                            }
-
-                            @Override
-                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                                if (charSequence.length() > 0) {
-                                    double bac = Double.parseDouble(charSequence.toString());
-
-                                    GradientDrawable viewBackground = (GradientDrawable) statusView.getBackground();
-
-                                    if (0 <= bac && bac <= 0.08) {
-                                        // You're Safe.
-                                        statusView.setText(R.string.status_view_safe);
-                                        viewBackground.setColor(getResources().getColor(R.color.success));
-                                    } else if (0.08 < bac && bac <= 0.2) {
-                                        // Be Careful.
-                                        statusView.setText(R.string.status_view_careful);
-                                        viewBackground.setColor(getResources().getColor(R.color.warning));
-                                    } else if (0.2 < bac) {
-                                        // Over the limit!
-                                        statusView.setText(R.string.status_view_danger);
-                                        viewBackground.setColor(getResources().getColor(R.color.danger));
-
-                                        if (0.25 <= bac) {
-                                            Toast.makeText(getParent(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
-                                            buttonDrinkAdd.setEnabled(false);
-                                        }
-                                    }
-                                }
-                            }
-
-                            @Override
-                            public void afterTextChanged(Editable editable) {
-                            }
-                        });
                         break;
                     default:
                         throw new IllegalArgumentException(getString(R.string.exception_illegal_argument_unknown_result_code, result.getResultCode()));
@@ -106,7 +69,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             }
         }
     });
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -160,7 +122,44 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             startForResult.launch(intent);
         });
 
+        // This only needs to be added once.
+        bacLevelView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+            }
 
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (charSequence.length() > 0) {
+                    double bac = Double.parseDouble(charSequence.toString());
+
+                    GradientDrawable viewBackground = (GradientDrawable) statusView.getBackground();
+
+                    if (0 <= bac && bac <= 0.08) {
+                        // You're Safe.
+                        statusView.setText(R.string.status_view_safe);
+                        viewBackground.setColor(getResources().getColor(R.color.success));
+                    } else if (0.08 < bac && bac <= 0.2) {
+                        // Be Careful.
+                        statusView.setText(R.string.status_view_careful);
+                        viewBackground.setColor(getResources().getColor(R.color.warning));
+                    } else if (0.2 < bac) {
+                        // Over the limit!
+                        statusView.setText(R.string.status_view_danger);
+                        viewBackground.setColor(getResources().getColor(R.color.danger));
+
+                        if (0.25 <= bac) {
+                            Toast.makeText(getParent(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
+                            buttonDrinkAdd.setEnabled(false);
+                        }
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+            }
+        });
     }
 
     @Override
