@@ -15,4 +15,8 @@ public class Drink implements Serializable {
         this.drinkSize = size;
         this.drinkAlcoholPercent = alcohol;
     }
+
+    public double getLiquidOunces() {
+        return (drinkAlcoholPercent * drinkSize) / 100;
+    }
 }
