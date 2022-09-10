@@ -84,7 +84,7 @@ public class AddDrinkActivity extends AppCompatActivity {
         findViewById(R.id.buttonCancel).setOnClickListener(v -> finish());
 
         // Creates a drink and sends back to main activity
-        findViewById(R.id.buttonDrinkAdd).setOnClickListener(v -> {
+        findViewById(R.id.buttonDrinkSet).setOnClickListener(v -> {
             if (!validateDrinkSize()) {
                 Toast.makeText(getApplicationContext(), getString(R.string.validation_drink_size), Toast.LENGTH_SHORT).show();
                 return;
