@@ -176,7 +176,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
         // if there are drinks in the ArrayList, enable the View Drinks button
         buttonDrinkView.setEnabled(!drinkArrayList.isEmpty());
-
     }
 
     @Override
