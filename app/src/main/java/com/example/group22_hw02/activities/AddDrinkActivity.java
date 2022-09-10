@@ -98,7 +98,7 @@ public class AddDrinkActivity extends AppCompatActivity {
             Drink drink = new Drink(drinkOunces, drinkPercent);
             Intent intent = new Intent(AddDrinkActivity.this, MainActivity.class);
             intent.putExtra(getString(R.string.intent_drink), drink);
-            setResult(RESULT_OK, intent);
+            setResult(MainActivity.ACTIVITY_DRINK_ADD, intent);
             finish();
         });
     }

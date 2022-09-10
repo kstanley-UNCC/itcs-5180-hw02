@@ -38,62 +38,68 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
     Profile profile;
 
+    static final public int ACTIVITY_SET = 0;
+    static final public int ACTIVITY_DRINK_ADD = 1;
 
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
 
     ActivityResultLauncher<Intent> startForResult = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
         @Override
         public void onActivityResult(ActivityResult result) {
-            if (result != null && result.getResultCode() == RESULT_OK) {
-                if (result.getData() != null) {
-                    Intent intent = result.getData();
+            if (result != null && result.getData() != null) {
+                Intent intent = result.getData();
 
-                    profile = (Profile) intent.getSerializableExtra(getString(R.string.intent_profile));
-                    if (profile.weight > 0) {
-                        weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
-                    }
+                switch (result.getResultCode()) {
+                    case ACTIVITY_SET:
+                        profile = (Profile) intent.getSerializableExtra(getString(R.string.intent_profile));
 
-                    // takes entered drink and adds it to the ArrayList
-                    Drink drink = (Drink) result.getData().getSerializableExtra(getString(R.string.intent_drink));
-                    drinkArrayList.add(drink);
-
-                    bacLevelView.addTextChangedListener(new TextWatcher() {
-                        @Override
-                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if (profile.weight > 0) {
+                            weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
                         }
+                        break;
+                    case ACTIVITY_DRINK_ADD:
+                        // takes entered drink and adds it to the ArrayList
+                        Drink drink = (Drink) result.getData().getSerializableExtra(getString(R.string.intent_drink));
+                        drinkArrayList.add(drink);
 
-                        @Override
-                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                            if (charSequence.length() > 0) {
-                                double bac = Double.parseDouble(charSequence.toString());
+                        bacLevelView.addTextChangedListener(new TextWatcher() {
+                            @Override
+                            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            }
 
-                                GradientDrawable viewBackground = (GradientDrawable) statusView.getBackground();
+                            @Override
+                            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                                if (charSequence.length() > 0) {
+                                    double bac = Double.parseDouble(charSequence.toString());
 
-                                if (0 <= bac && bac <= 0.08) {
-                                    // You're Safe.
-                                    statusView.setText(R.string.status_view_safe);
-                                    viewBackground.setColor(getResources().getColor(R.color.success));
-                                } else if (0.08 < bac && bac <= 0.2) {
-                                    // Be Careful.
-                                    statusView.setText(R.string.status_view_careful);
-                                    viewBackground.setColor(getResources().getColor(R.color.warning));
-                                } else if (0.2 < bac) {
-                                    // Over the limit!
-                                    statusView.setText(R.string.status_view_danger);
-                                    viewBackground.setColor(getResources().getColor(R.color.danger));
+                                    GradientDrawable viewBackground = (GradientDrawable) statusView.getBackground();
 
-                                    if (0.25 <= bac) {
-                                        Toast.makeText(getParent(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
-                                        buttonDrinkAdd.setEnabled(false);
+                                    if (0 <= bac && bac <= 0.08) {
+                                        // You're Safe.
+                                        statusView.setText(R.string.status_view_safe);
+                                        viewBackground.setColor(getResources().getColor(R.color.success));
+                                    } else if (0.08 < bac && bac <= 0.2) {
+                                        // Be Careful.
+                                        statusView.setText(R.string.status_view_careful);
+                                        viewBackground.setColor(getResources().getColor(R.color.warning));
+                                    } else if (0.2 < bac) {
+                                        // Over the limit!
+                                        statusView.setText(R.string.status_view_danger);
+                                        viewBackground.setColor(getResources().getColor(R.color.danger));
+
+                                        if (0.25 <= bac) {
+                                            Toast.makeText(getParent(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
+                                            buttonDrinkAdd.setEnabled(false);
+                                        }
                                     }
                                 }
                             }
-                        }
 
-                        @Override
-                        public void afterTextChanged(Editable editable) {
-                        }
-                    });
+                            @Override
+                            public void afterTextChanged(Editable editable) {
+                            }
+                        });
+                        break;
                 }
             }
         }

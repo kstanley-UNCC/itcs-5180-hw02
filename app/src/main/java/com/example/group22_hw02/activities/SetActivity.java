@@ -56,7 +56,7 @@ public class SetActivity extends AppCompatActivity {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             intent.putExtra(getString(R.string.intent_profile), new Profile(userWeight, gender, genderConstant));
 
-            setResult(RESULT_OK, intent);
+            setResult(MainActivity.ACTIVITY_SET, intent);
 
             finish();
         });
