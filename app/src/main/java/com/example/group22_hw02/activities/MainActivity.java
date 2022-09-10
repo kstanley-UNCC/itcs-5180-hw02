@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
     Profile profile;
 
-    static public String DRINK_KEY = "Drink";
     static public String WEIGHT_KEY = "Weight";
 
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
@@ -55,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                     }
 
                     // takes entered drink and adds it to the ArrayList
-                    Drink drink = (Drink) result.getData().getSerializableExtra(DRINK_KEY);
+                    Drink drink = (Drink) result.getData().getSerializableExtra(getString(R.string.intent_drink));
                     drinkArrayList.add(drink);
 
                     bacLevelView.addTextChangedListener(new TextWatcher() {

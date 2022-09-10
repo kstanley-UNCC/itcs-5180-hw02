@@ -34,8 +34,6 @@ public class AddDrinkActivity extends AppCompatActivity {
     double drinkOunces;
     double drinkPercent;
 
-    static public String DRINK_KEY = "Drink";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +97,7 @@ public class AddDrinkActivity extends AppCompatActivity {
 
             Drink drink = new Drink(drinkOunces, drinkPercent);
             Intent intent = new Intent(AddDrinkActivity.this, MainActivity.class);
-            intent.putExtra(DRINK_KEY, drink);
+            intent.putExtra(getString(R.string.intent_drink), drink);
             setResult(RESULT_OK, intent);
             finish();
         });

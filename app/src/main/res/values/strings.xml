@@ -53,4 +53,5 @@
     <string name="validation_weight_gender">Please set your weight and gender!</string>
 
     <string name="intent_profile">profile</string>
+    <string name="intent_drink">drink</string>
 </resources>
