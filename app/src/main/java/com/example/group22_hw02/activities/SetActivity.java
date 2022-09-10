@@ -41,7 +41,7 @@ public class SetActivity extends AppCompatActivity {
         findViewById(R.id.buttonCancel).setOnClickListener(v -> finish());
 
         // set weight button
-        findViewById(R.id.buttonDrinkAdd).setOnClickListener(v -> {
+        findViewById(R.id.buttonDrinkSet).setOnClickListener(v -> {
             if (!validateWeight()) {
                 Toast.makeText(getApplicationContext(), getString(R.string.validation_weight), Toast.LENGTH_SHORT).show();
                 return;
