@@ -37,7 +37,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
     Profile profile;
 
-    static public String WEIGHT_KEY = "Weight";
 
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
 
