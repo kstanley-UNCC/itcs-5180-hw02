@@ -45,6 +45,7 @@
 
     <string name="exception_illegal_state_drink_size">Invalid drink size selection.</string>
     <string name="exception_illegal_state_gender">Invalid gender selection.</string>
+    <string name="exception_illegal_argument_unknown_result_code">Unknown result code %d given</string>
 
     <string name="validation_drink_size">Please pick a drink size!</string>
     <string name="validation_alcohol_percent">Please pick an alcohol percent!</string>

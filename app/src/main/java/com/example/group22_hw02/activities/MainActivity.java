@@ -100,6 +100,8 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                             }
                         });
                         break;
+                    default:
+                        throw new IllegalArgumentException(getString(R.string.exception_illegal_argument_unknown_result_code, result.getResultCode()));
                 }
             }
         }
