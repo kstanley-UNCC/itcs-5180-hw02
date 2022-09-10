@@ -133,11 +133,7 @@ public class AddDrinkActivity extends AppCompatActivity {
      * @return boolean
      */
     private boolean validateAlcoholPercent() {
-        if (drinkPercent > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return drinkPercent > 0;
     }
 
 }
