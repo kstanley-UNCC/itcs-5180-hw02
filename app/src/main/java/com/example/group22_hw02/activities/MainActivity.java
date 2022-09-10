@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
     Button buttonDrinkAdd;
     Button buttonDrinkView;
     Button buttonSetWeight;
+    Button buttonReset;
 
     Profile profile;
 
@@ -99,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
     });
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
         buttonDrinkAdd = findViewById(R.id.buttonDrinkAdd);
         buttonDrinkView = findViewById(R.id.buttonDrinkView);
         buttonSetWeight = findViewById(R.id.buttonSetWeight);
+        buttonReset = findViewById(R.id.buttonReset);
         weightView = findViewById(R.id.weightView);
 
         // reset button resets calculator to original state
@@ -125,6 +126,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
             buttonDrinkAdd.setEnabled(false);
             buttonDrinkView.setEnabled(false);
+            buttonReset.setEnabled(false);
         });
         findViewById(R.id.buttonReset).performClick();
 
@@ -160,6 +162,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
         // if a profile was entered, enable the Add Drink button
         if (profile != null) {
             buttonDrinkAdd.setEnabled(true);
+            buttonReset.setEnabled(true);
         }
 
         // if there are drinks in the ArrayList, enable the View Drinks button
