@@ -34,6 +34,7 @@ public class AddDrinkActivity extends AppCompatActivity {
     double drinkOunces;
     double drinkPercent;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
