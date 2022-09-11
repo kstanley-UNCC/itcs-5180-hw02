@@ -2,3 +2,5 @@ app/build/**/*
 .DS_Store
 local.properties
 .gradle
+/.idea/workspace.xml
+/.idea/misc.xml
