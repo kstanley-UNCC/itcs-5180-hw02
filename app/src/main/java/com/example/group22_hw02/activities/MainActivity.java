@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                     case ACTIVITY_SET:
                         profile = intent.getParcelableExtra(getString(R.string.intent_profile));
 
+                        buttonReset.performClick();
+
                         if (profile.weight > 0) {
                             weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
                         }
