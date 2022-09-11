@@ -123,6 +123,8 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             }
 
             Intent intent = new Intent("com.example.group22_hw02.activities.ViewDrinksActivity");
+            intent.putExtra(getString(R.string.intent_drink_list), drinkArrayList);
+
             startForResult.launch(intent);
         });
 
