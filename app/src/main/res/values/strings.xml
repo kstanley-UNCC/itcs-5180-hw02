@@ -56,4 +56,5 @@
 
     <string name="intent_profile">profile</string>
     <string name="intent_drink">drink</string>
+    <string name="intent_drink_list">drink_list</string>
 </resources>

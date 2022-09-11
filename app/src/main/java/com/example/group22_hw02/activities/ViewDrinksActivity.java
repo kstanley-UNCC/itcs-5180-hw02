@@ -42,7 +42,7 @@ public class ViewDrinksActivity extends AppCompatActivity {
         viewDrinkSize = findViewById(R.id.viewDrinkSize);
         buttonClose = findViewById(R.id.buttonClose);
 
-        ArrayList<Drink> drinkArrayList = getIntent().getParcelableArrayListExtra("Drinks");
+        ArrayList<Drink> drinkArrayList = getIntent().getParcelableArrayListExtra(getString(R.string.intent_drink_list));
 
         double currentDrinkSize = drinkArrayList.get(0).getDrinkSize();
         double currentAlcoholPercent = drinkArrayList.get(0).getAlcoholPercent();
@@ -73,8 +73,9 @@ public class ViewDrinksActivity extends AppCompatActivity {
 
             // Should this be an if statement so it only updates if there were changes?
             Intent intent = new Intent(ViewDrinksActivity.this, MainActivity.class);
-            intent.putExtra("Updated Drinks", drinkArrayList);
+            intent.putExtra(getString(R.string.intent_drink_list), drinkArrayList);
             setResult(MainActivity.ACTIVITY_DRINK_VIEW, intent);
+
             finish();
         });
 
