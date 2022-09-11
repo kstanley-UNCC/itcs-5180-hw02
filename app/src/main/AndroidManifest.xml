@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.SetActivity"
+            android:name=".activities.SetProfileActivity"
             android:exported="true">
             <intent-filter>
-                <action android:name="com.example.group22_hw02.activities.SetActivity" />
+                <action android:name="com.example.group22_hw02.activities.SetProfileActivity" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>

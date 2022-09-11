@@ -1,6 +1,6 @@
 /*
  * Group 22 Homework 02
- * SetActivity.java
+ * SetProfileActivity.java
  * Ken Stanley & Stephanie Karp
  */
 package com.example.group22_hw02.activities;
@@ -17,7 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.group22_hw02.Profile;
 import com.example.group22_hw02.R;
 
-public class SetActivity extends AppCompatActivity {
+public class SetProfileActivity extends AppCompatActivity {
     EditText weightWidget;
     RadioGroup genderGroup;
 
