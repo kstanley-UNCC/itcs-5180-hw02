@@ -53,6 +53,7 @@
     <string name="validation_gender">Please pick a gender!</string>
     <string name="validation_weight">Please enter your weight!</string>
     <string name="validation_weight_gender">Please set your weight and gender!</string>
+    <string name="validation_drink_list_empty">There are no drinks to view</string>
 
     <string name="intent_profile">profile</string>
     <string name="intent_drink">drink</string>
