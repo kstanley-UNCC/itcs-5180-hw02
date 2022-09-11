@@ -179,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
         // if a profile was entered, enable the Add Drink button
         if (profile != null) {
+            buttonDrinkView.setEnabled(true);
             buttonDrinkAdd.setEnabled(true);
             buttonReset.setEnabled(true);
         }
