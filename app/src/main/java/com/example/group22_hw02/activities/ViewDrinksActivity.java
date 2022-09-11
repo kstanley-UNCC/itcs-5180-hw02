@@ -40,6 +40,8 @@ public class ViewDrinksActivity extends AppCompatActivity {
         viewCurrentDrinkNumber = findViewById(R.id.viewCurrentDrinkNumber);
         viewDateAdded = findViewById(R.id.viewDateAdded);
         viewDrinkSize = findViewById(R.id.viewDrinkSize);
+        buttonClose = findViewById(R.id.buttonClose);
+
         ArrayList<Drink> drinkArrayList = getIntent().getParcelableArrayListExtra("Drinks");
 
         double currentDrinkSize = drinkArrayList.get(0).getDrinkSize();
@@ -66,7 +68,7 @@ public class ViewDrinksActivity extends AppCompatActivity {
         });
 
         // Close button returns to MainActivity with updated arrayList
-        findViewById(R.id.buttonClose).setOnClickListener(v -> {
+        buttonClose.setOnClickListener(v -> {
             // Send back updated ArrayList
 
             // Should this be an if statement so it only updates if there were changes?
