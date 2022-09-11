@@ -59,18 +59,14 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                         }
                         break;
                     case ACTIVITY_DRINK_ADD:
-                        // takes entered drink and adds it to the ArrayList
-                        Drink drink = intent.getParcelableExtra(getString(R.string.intent_drink));
-                        drinkArrayList.add(drink);
+                        drinkArrayList.add(intent.getParcelableExtra(getString(R.string.intent_drink)));
 
-                        numDrinksView.setText(getString(R.string.num_drinks_view, drinkArrayList.size()));
-                        bacLevelView.setText(getString(R.string.bac_level_view, calculateBac()));
+                        updateView();
                         break;
                     case ACTIVITY_DRINK_VIEW:
                         drinkArrayList = intent.getParcelableArrayListExtra(getString(R.string.intent_drink_list));
 
-                        numDrinksView.setText(getString(R.string.num_drinks_view, drinkArrayList.size()));
-                        bacLevelView.setText(getString(R.string.bac_level_view, calculateBac()));
+                        updateView();
                         break;
                     default:
                         throw new IllegalArgumentException(getString(R.string.exception_illegal_argument_unknown_result_code, result.getResultCode()));
@@ -191,6 +187,14 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
     @Override
     public int compareTo(MainActivity o) {
         return 0;
+    }
+
+    /**
+     * Update the Number of Drinks and BAC Level views.
+     */
+    private void updateView() {
+        numDrinksView.setText(getString(R.string.num_drinks_view, drinkArrayList.size()));
+        bacLevelView.setText(getString(R.string.bac_level_view, calculateBac()));
     }
 
     /**
