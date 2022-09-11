@@ -47,6 +47,7 @@
     <string name="view_current_drink_number">Drink %d out of %d</string>
     <string name="view_alcohol_percent">%.0f%% Alcohol</string>
     <string name="view_drink_size">%.0f oz</string>
+    <string name="view_date_added">Added %s</string>
 
     <string name="exception_illegal_state_drink_size">Invalid drink size selection.</string>
     <string name="exception_illegal_state_gender">Invalid gender selection.</string>
