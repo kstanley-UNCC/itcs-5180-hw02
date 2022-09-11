@@ -182,9 +182,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             buttonDrinkAdd.setEnabled(true);
             buttonReset.setEnabled(true);
         }
-
-        // if there are drinks in the ArrayList, enable the View Drinks button
-        buttonDrinkView.setEnabled(!drinkArrayList.isEmpty());
     }
 
     @Override
