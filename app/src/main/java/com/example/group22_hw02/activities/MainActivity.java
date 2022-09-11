@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                     double bac = Double.parseDouble(charSequence.toString());
 
                     GradientDrawable viewBackground = (GradientDrawable) statusView.getBackground();
+                    buttonDrinkAdd.setEnabled(true);
 
                     if (0 <= bac && bac <= 0.08) {
                         // You're Safe.
