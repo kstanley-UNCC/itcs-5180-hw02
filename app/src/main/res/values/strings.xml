@@ -2,6 +2,7 @@
     <string name="app_name">BAC Calculator</string>
     <string name="app_activity_set_weight_gender_name">Set Weight &amp; Gender</string>
     <string name="app_activity_add_drink">Add Drink</string>
+    <string name="app_activity_view_drinks">View Drinks</string>
 
     <string name="weight_label">Weight:</string>
     <string name="weight_widget_hint">Enter Weight</string>

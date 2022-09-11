@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
     static final public int ACTIVITY_SET = 0;
     static final public int ACTIVITY_DRINK_ADD = 1;
+    static final public int ACTIVITY_DRINK_VIEW = 2;
 
     public ArrayList<Drink> drinkArrayList = new ArrayList<>();
 
@@ -64,6 +65,9 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
                         numDrinksView.setText(getString(R.string.num_drinks_view, drinkArrayList.size()));
                         bacLevelView.setText(getString(R.string.bac_level_view, calculateBac()));
+                        break;
+                    case ACTIVITY_DRINK_VIEW:
+                        ArrayList<Drink> drinkArrayList = (ArrayList<Drink>) getIntent().getSerializableExtra("Updated Drinks");
                         break;
                     default:
                         throw new IllegalArgumentException(getString(R.string.exception_illegal_argument_unknown_result_code, result.getResultCode()));

@@ -135,5 +135,4 @@ public class AddDrinkActivity extends AppCompatActivity {
     private boolean validateAlcoholPercent() {
         return drinkPercent > 0;
     }
-
 }
