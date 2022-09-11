@@ -44,6 +44,10 @@
     <string name="status_view_danger">Over the Limit!</string>
     <string name="status_view_over">No more drinks for you.</string>
 
+    <string name="view_current_drink_number">Drink %d out of %d</string>
+    <string name="view_alcohol_percent">%.0f%% Alcohol</string>
+    <string name="view_drink_size">%.0f oz</string>
+
     <string name="exception_illegal_state_drink_size">Invalid drink size selection.</string>
     <string name="exception_illegal_state_gender">Invalid gender selection.</string>
     <string name="exception_illegal_argument_unknown_result_code">Unknown result code %d given</string>
