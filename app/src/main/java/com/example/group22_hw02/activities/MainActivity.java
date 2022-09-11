@@ -52,13 +52,16 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
                 switch (result.getResultCode()) {
                     case ACTIVITY_SET:
-                        profile = intent.getParcelableExtra(getString(R.string.intent_profile));
-
                         buttonReset.performClick();
+
+                        profile = intent.getParcelableExtra(getString(R.string.intent_profile));
 
                         if (profile.weight > 0) {
                             weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
                         }
+
+                        buttonDrinkView.setEnabled(true);
+                        buttonDrinkAdd.setEnabled(true);
                         break;
                     case ACTIVITY_DRINK_ADD:
                         drinkArrayList.add(intent.getParcelableExtra(getString(R.string.intent_drink)));
@@ -99,11 +102,11 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             numDrinksView.setText(getString(R.string.num_drinks_view, 0));
             bacLevelView.setText(getString(R.string.bac_level_view, 0.0));
 
+            profile = null;
             drinkArrayList.clear();
 
             buttonDrinkAdd.setEnabled(false);
             buttonDrinkView.setEnabled(false);
-            buttonReset.setEnabled(false);
         });
         findViewById(R.id.buttonReset).performClick();
 
@@ -160,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                         viewBackground.setColor(getResources().getColor(R.color.danger));
 
                         if (0.25 <= bac) {
-                            Toast.makeText(getParent(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), R.string.status_view_over, Toast.LENGTH_SHORT).show();
                             buttonDrinkAdd.setEnabled(false);
                         }
                     }
@@ -171,17 +174,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
             public void afterTextChanged(Editable editable) {
             }
         });
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (profile != null) {
-            buttonDrinkView.setEnabled(true);
-            buttonDrinkAdd.setEnabled(true);
-            buttonReset.setEnabled(true);
-        }
     }
 
     @Override
