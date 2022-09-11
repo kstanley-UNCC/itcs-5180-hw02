@@ -15,8 +15,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.group22_hw02.Drink;
 import com.example.group22_hw02.R;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 
 public class ViewDrinksActivity extends AppCompatActivity {
 
@@ -46,18 +49,16 @@ public class ViewDrinksActivity extends AppCompatActivity {
 
         ArrayList<Drink> drinkArrayList = getIntent().getParcelableArrayListExtra(getString(R.string.intent_drink_list));
 
-        double currentDrinkSize = drinkArrayList.get(0).getDrinkSize();
-        double currentAlcoholPercent = drinkArrayList.get(0).getAlcoholPercent();
-        double totalDrinks = drinkArrayList.size();
-        int currentDrinkNumber = (drinkArrayList.indexOf(0)) + 1;
-        //Date dateDrinkAdded;
+        Drink currentDrink = drinkArrayList.get(currentDrinkNumber);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm a", Locale.US);
 
-        Drink currentDrink = new Drink(currentDrinkSize, currentAlcoholPercent);
+        Date drinkDate = Calendar.getInstance().getTime();
+        drinkDate.setTime(currentDrink.dateTime);
 
-        viewCurrentDrinkNumber.setText("Drink " + currentDrinkNumber + " out of " + totalDrinks);
-        viewAlcoholPercent.setText((currentDrink.drinkAlcoholPercent) + "Alcohol");
-        viewDrinkSize.setText(currentDrink.drinkSize + " oz");
-        //viewDateAdded.setText();
+        viewCurrentDrinkNumber.setText(getString(R.string.view_current_drink_number, currentDrinkNumber + 1, drinkArrayList.size()));
+        viewAlcoholPercent.setText(getString(R.string.view_alcohol_percent, currentDrink.drinkAlcoholPercent));
+        viewDrinkSize.setText(getString(R.string.view_drink_size, currentDrink.drinkSize));
+        viewDateAdded.setText(dateFormat.format(drinkDate));
 
         // Trash button deletes current drink from ArrayList
         findViewById(R.id.buttonTrash).setOnClickListener(v -> {
