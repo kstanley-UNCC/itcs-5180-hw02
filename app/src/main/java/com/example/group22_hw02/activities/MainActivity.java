@@ -177,7 +177,6 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
     protected void onResume() {
         super.onResume();
 
-        // if a profile was entered, enable the Add Drink button
         if (profile != null) {
             buttonDrinkView.setEnabled(true);
             buttonDrinkAdd.setEnabled(true);
