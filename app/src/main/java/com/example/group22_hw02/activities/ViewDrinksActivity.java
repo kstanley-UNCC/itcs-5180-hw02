@@ -29,6 +29,8 @@ public class ViewDrinksActivity extends AppCompatActivity {
     Button buttonPrevious;
     Button buttonNext;
 
+    int currentDrinkNumber = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,12 +61,17 @@ public class ViewDrinksActivity extends AppCompatActivity {
 
         // Trash button deletes current drink from ArrayList
         findViewById(R.id.buttonTrash).setOnClickListener(v -> {
-            drinkArrayList.remove(drinkArrayList.indexOf(this));
+            drinkArrayList.remove(currentDrinkNumber);
+
             if (drinkArrayList.isEmpty()) {
                 finish();
             } else {
                 viewCurrentDrinkNumber.setText("Drink " + currentDrinkNumber + " out of " + totalDrinks);
             }
+
+            // FIXME Call previous to move us back in our drink list
+            currentDrinkNumber = Math.max(--currentDrinkNumber, 0);
+            viewCurrentDrinkNumber.setText(getString(R.string.view_current_drink_number, currentDrinkNumber, drinkArrayList.size()));
         });
 
         // Close button returns to MainActivity with updated arrayList
