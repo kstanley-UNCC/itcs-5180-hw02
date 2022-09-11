@@ -69,10 +69,7 @@ public class ViewDrinksActivity extends AppCompatActivity {
 
         // Close button returns to MainActivity with updated arrayList
         buttonClose.setOnClickListener(v -> {
-            // Send back updated ArrayList
-
-            // Should this be an if statement so it only updates if there were changes?
-            Intent intent = new Intent(ViewDrinksActivity.this, MainActivity.class);
+            Intent intent = new Intent("android.intent.action.MAIN");
             intent.putExtra(getString(R.string.intent_drink_list), drinkArrayList);
             setResult(MainActivity.ACTIVITY_DRINK_VIEW, intent);
 
