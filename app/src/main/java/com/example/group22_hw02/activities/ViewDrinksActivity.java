@@ -32,6 +32,7 @@ public class ViewDrinksActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_viewdrinks);
 
         setTitle(R.string.app_activity_view_drinks);
 
