@@ -64,9 +64,8 @@ public class ViewDrinksActivity extends AppCompatActivity {
             drinkArrayList.remove(currentDrinkNumber);
 
             if (drinkArrayList.isEmpty()) {
-                finish();
-            } else {
-                viewCurrentDrinkNumber.setText("Drink " + currentDrinkNumber + " out of " + totalDrinks);
+                buttonClose.performClick();
+                return;
             }
 
             // FIXME Call previous to move us back in our drink list
