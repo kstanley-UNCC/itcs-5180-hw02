@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
 
                 switch (result.getResultCode()) {
                     case ACTIVITY_SET:
-                        profile = (Profile) intent.getSerializableExtra(getString(R.string.intent_profile));
+                        profile = intent.getParcelableExtra(getString(R.string.intent_profile));
 
                         if (profile.weight > 0) {
                             weightView.setText(getString(R.string.weight_view_label_label, profile.weight, profile.gender));
@@ -60,14 +60,14 @@ public class MainActivity extends AppCompatActivity implements Comparable<MainAc
                         break;
                     case ACTIVITY_DRINK_ADD:
                         // takes entered drink and adds it to the ArrayList
-                        Drink drink = (Drink) result.getData().getSerializableExtra(getString(R.string.intent_drink));
+                        Drink drink = intent.getParcelableExtra(getString(R.string.intent_drink));
                         drinkArrayList.add(drink);
 
                         numDrinksView.setText(getString(R.string.num_drinks_view, drinkArrayList.size()));
                         bacLevelView.setText(getString(R.string.bac_level_view, calculateBac()));
                         break;
                     case ACTIVITY_DRINK_VIEW:
-                        ArrayList<Drink> drinkArrayList = (ArrayList<Drink>) getIntent().getSerializableExtra("Updated Drinks");
+                        drinkArrayList = intent.getParcelableArrayListExtra(getString(R.string.intent_drink_list));
                         break;
                     default:
                         throw new IllegalArgumentException(getString(R.string.exception_illegal_argument_unknown_result_code, result.getResultCode()));

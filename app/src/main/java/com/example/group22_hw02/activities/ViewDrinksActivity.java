@@ -40,8 +40,8 @@ public class ViewDrinksActivity extends AppCompatActivity {
         viewCurrentDrinkNumber = findViewById(R.id.viewCurrentDrinkNumber);
         viewDateAdded = findViewById(R.id.viewDateAdded);
         viewDrinkSize = findViewById(R.id.viewDrinkSize);
+        ArrayList<Drink> drinkArrayList = getIntent().getParcelableArrayListExtra("Drinks");
 
-        ArrayList<Drink> drinkArrayList = (ArrayList<Drink>) getIntent().getSerializableExtra("Drinks");
         double currentDrinkSize = drinkArrayList.get(0).getDrinkSize();
         double currentAlcoholPercent = drinkArrayList.get(0).getAlcoholPercent();
         double totalDrinks = drinkArrayList.size();
